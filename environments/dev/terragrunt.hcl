@@ -4,9 +4,10 @@ terraform {
 
 inputs = {
   region_name = "ap-south-1" #mumbai-region
+  profile = "psl-aws"
   public_az   = ["ap-south-1a", "ap-south-1b"]
   private_az  = ["ap-south-1a", "ap-south-1b"]
-  environment = "Dev-test"
+  environment = "Develop"
 }
 
 include "root" {
