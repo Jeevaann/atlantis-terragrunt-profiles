@@ -14,9 +14,7 @@ EOF
 }
 
 generate "versions" {
-
   path      = "versions.tf"
-
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
     terraform {
@@ -29,7 +27,6 @@ generate "versions" {
     }
     EOF
 }
-
 
 # Generate an AWS provider block
 generate "provider" {
@@ -52,4 +49,3 @@ provider "aws" {
 }
 EOF
 }
-
