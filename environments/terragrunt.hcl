@@ -7,7 +7,6 @@ terraform {
         bucket = "terraform-multi-env-management"
         key = "${path_relative_to_include()}/terraform.tfstate"
         region = "us-east-1"
-        profile = "psl-aws"
         encrypt = "true"
     }
 }
@@ -39,7 +38,6 @@ generate "provider" {
   contents  = <<EOF
 provider "aws" {
   region = "us-east-1"
-  profile = "psl-aws"
 }
 EOF
 }
