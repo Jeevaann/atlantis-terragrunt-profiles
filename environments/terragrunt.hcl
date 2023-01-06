@@ -34,8 +34,8 @@ generate "provider" {
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
   provider "vault" {
-  address = "http://vault-route-vault-system.edge-dev-410-915b3b336cabec458a7c7ec2aa7c625f-0000.us-south.containers.appdomain.cloud"
-  token   = "root"
+  address = ""
+  token   = ""
 }
   data "vault_aws_access_credentials" "creds" {
   backend = "aws"
