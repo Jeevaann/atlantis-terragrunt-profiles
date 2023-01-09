@@ -33,6 +33,6 @@ generate "vault_provider" {
   contents = <<EOF
   provider "vault" {
   }
-  EOF
+EOF
 }
     
