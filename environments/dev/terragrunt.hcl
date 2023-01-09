@@ -6,6 +6,8 @@ inputs = {
   public_az   = ["us-east-1a", "us-east-1b"]
   private_az  = ["us-east-1a", "us-east-1b"]
   environment = "Testing"
+  access_key = local.access_key
+  secret_key = local.secret_key
 
 }
 
