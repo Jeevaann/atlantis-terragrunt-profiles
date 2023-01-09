@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/Jeevaann/atlantis-terragrunt-profiles.git//modules"
+  source = "git::https://github.com/Omqarrr/aws-vpc-network-terraform.git//modules/vpc"
 }
 
 inputs = {
