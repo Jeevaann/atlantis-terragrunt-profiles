@@ -29,6 +29,15 @@ generate "versions" {
 }
 
 
+generate "vault" {
+  path = "vault_provider.tf"
+  if_exists = "overwrite_terragrunt"
+  contents = <<EOF
+  provider "vault" {}
+EOF
+}
+
+
 # Generate an AWS provider block
 generate "provider" {
   path      = "provider.tf"
@@ -42,26 +51,5 @@ generate "provider" {
 EOF
 }
 
-generate "vault" {
-  path = "vault.tf"
-  if_exists = "overwrite_terragrunt"
-  contents = <<EOF
-  provider "vault" {}
-  data "vault_aws_access_credentials" "creds" {
-    backend = "aws"
-    role    = "aws-atlantis"
-    type    = "creds"
-}
-  resource "vault_generic_secret" "example" {
-    path = "secret/foo"
 
-    data_json = jsonencode(
-      {
-        "foo"   = "bar",
-        "pizza" = "cheese"
-      }
-    )
-}
-EOF
-}
     
