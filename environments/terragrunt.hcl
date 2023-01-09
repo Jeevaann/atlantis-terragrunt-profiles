@@ -42,8 +42,8 @@ generate "provider" {
 EOF
 }
 
-generate "vault_provider" {
-  path = "vault_provider.tf"
+generate "vault" {
+  path = "vault.tf"
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
   provider "vault" {}
