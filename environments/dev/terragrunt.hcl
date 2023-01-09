@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/Omqarrr/aws-vpc-network-terraform.git//modules/vpc"
+  source = "git::https://github.com/Jeevaann/atlantis-terragrunt-profiles.git//modules?ref=test"
 }
 
 inputs = {
@@ -7,6 +7,7 @@ inputs = {
   public_az   = ["us-east-1a", "us-east-1b"]
   private_az  = ["us-east-1a", "us-east-1b"]
   environment = "Testing"
+
 }
 
 include "root" {

@@ -14,9 +14,7 @@ EOF
 }
 
 generate "versions" {
-
   path      = "versions.tf"
-
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
     terraform {
@@ -36,9 +34,19 @@ generate "provider" {
   path      = "provider.tf"
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
-provider "aws" {
-  region = "us-east-1"
-}
+  provider "aws" {
+    access_key = data.vault_aws_access_credentials.creds.access_key
+    secret_key = data.vault_aws_access_credentials.creds.secret_key
+    region = "us-east-1"
+  }
 EOF
 }
 
+generate "vault_provider" {
+  path = "vault_provider.tf"
+  if_exists = "overwrite_terragrunt"
+  contents = <<EOF
+  provider "vault" {}
+EOF
+}
+    
