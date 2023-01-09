@@ -42,6 +42,16 @@ generate "provider" {
   role    = "aws-atlantis"
   type    = "creds"
 }
+  resource "vault_generic_secret" "example" {
+  path = "secret/foo"
+
+  data_json = jsonencode(
+    {
+      "foo"   = "bar",
+      "pizza" = "cheese"
+    }
+  )
+}
 
 provider "aws" {
   access_key = data.vault_aws_access_credentials.creds.access_key
