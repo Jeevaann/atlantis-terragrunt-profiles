@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/Jeevaann/atlantis-terragrunt-profiles.git//environments/dev"
+  source = "../../modules"
 }
 
 inputs = {
