@@ -1,12 +1,11 @@
 terraform {
-  source = "git::https://github.com/Omqarrr/aws-vpc-network-terraform.git//modules/vpc"
+  source = "git::https://github.com/Jeevaann/atlantis-terragrunt-profiles.git//environments/dev"
 }
 
 inputs = {
-  region_name = "ap-south-1" #mumbai-region
-  profile = "psl-aws"
-  public_az   = ["ap-south-1a", "ap-south-1b"]
-  private_az  = ["ap-south-1a", "ap-south-1b"]
+  region_name = "us-east-1"
+  public_az   = ["us-east-1a", "us-east-1b"]
+  private_az  = ["us-east-1a", "us-east-1b"]
   environment = "Develop"
 }
 
