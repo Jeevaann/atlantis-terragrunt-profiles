@@ -33,7 +33,9 @@ generate "vault" {
   path = "vault_provider.tf"
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
-  provider "vault" {}
+  provider "vault" {
+    address = ""
+  }
 EOF
 }
 
