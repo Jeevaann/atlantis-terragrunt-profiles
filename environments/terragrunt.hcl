@@ -5,8 +5,6 @@ generate "backend" {
 terraform {
     backend "s3" {
         bucket = "atlantis-terragrunt-profiles"
-        access_key = data.vault_aws_access_credentials.creds.access_key
-        secret_key = data.vault_aws_access_credentials.creds.secret_key
         key = "${path_relative_to_include()}/terraform.tfstate"
         region = "us-east-1"
         encrypt = "true"
