@@ -1,7 +1,6 @@
 terraform {
-  source = "git::https://github.com/Omqarrr/aws-vpc-network-terraform.git//modules/vpc"
+  source = "../../modules"
 }
-
 inputs = {
   region_name = "us-east-1"
   public_az   = ["us-east-1a", "us-east-1b"]
@@ -10,6 +9,6 @@ inputs = {
 
 }
 
-include "root" {
+include {
   path = find_in_parent_folders()
 }
