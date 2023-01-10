@@ -29,15 +29,15 @@ generate "versions" {
 }
 
 
-generate "vault" {
-  path = "vault_provider.tf"
-  if_exists = "overwrite_terragrunt"
-  contents = <<EOF
-  provider "vault" {
-    address = ""
-  }
-EOF
-}
+# generate "vault" {
+#   path = "vault_provider.tf"
+#   if_exists = "overwrite_terragrunt"
+#   contents = <<EOF
+#   provider "vault" {
+#     address = ""
+#   }
+# EOF
+# }
 
 
 # Generate an AWS provider block
