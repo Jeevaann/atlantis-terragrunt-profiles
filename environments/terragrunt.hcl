@@ -36,11 +36,11 @@ generate "vault" {
   provider "vault" {
     address = ""
   }
-data "vault_aws_access_credentials" "creds" {
-  backend = "aws"
-  role    = "aws-atlantis"
-  type    = "creds"
-}
+  data "vault_aws_access_credentials" "creds" {
+    backend = "aws"
+    role    = "aws-atlantis"
+    type    = "creds"
+  }
 EOF
 }
 
