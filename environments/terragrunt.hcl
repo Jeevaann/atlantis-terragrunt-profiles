@@ -1,11 +1,18 @@
+locals{
+  access_key = "12345"
+  secret_key = "abcde"
+}
+
 generate "backend" {
   path      = "s3-backend.tf"
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
 terraform {
     backend "s3" {
-        bucket = "atlantis-terragrunt-profiles"
+        bucket = "terraform-multi-env-management"
         key = "${path_relative_to_include()}/terraform.tfstate"
+        access_key = "${local.access_key}"
+        secret_key = "${local.secret_key}"
         region = "us-east-1"
         encrypt = "true"
     }
