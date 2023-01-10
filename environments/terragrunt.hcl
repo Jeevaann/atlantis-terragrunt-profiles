@@ -1,8 +1,3 @@
-locals{
-  access_key = data.vault_aws_access_credentials.creds.access_key
-  secret_key = data.vault_aws_access_credentials.creds.secret_key
-}
-
 generate "backend" {
   path      = "s3-backend.tf"
   if_exists = "overwrite_terragrunt"
@@ -11,8 +6,8 @@ terraform {
     backend "s3" {
         bucket = "terraform-multi-env-management"
         key = "${path_relative_to_include()}/terraform.tfstate"
-        access_key = "${local.access_key}"
-        secret_key = "${local.secret_key}"
+        access_key = "${data.vault_aws_access_credentials.creds.access_key}"
+        secret_key = "${data.vault_aws_access_credentials.creds.secret_key}"
         region = "us-east-1"
         encrypt = "true"
     }
