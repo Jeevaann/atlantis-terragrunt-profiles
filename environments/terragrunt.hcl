@@ -37,7 +37,7 @@ generate "vault" {
     address = ""
   }
   data "vault_aws_access_credentials" "creds" {
-    backend = "aws"
+    backend = "aws-tg"
     role    = "aws-atlantis"
     type    = "creds"
   }
