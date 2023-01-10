@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/Omqarrr/aws-vpc-network-terraform.git//modules/vpc"
+  source = "../../modules"
 }
 inputs = {
   region_name = "us-east-1"
