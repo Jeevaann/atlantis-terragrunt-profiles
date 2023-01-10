@@ -1,17 +1,17 @@
-# generate "backend" {
-#   path      = "s3-backend.tf"
-#   if_exists = "overwrite_terragrunt"
-#   contents  = <<EOF
-# terraform {
-#     backend "s3" {
-#         bucket = "terraform-multi-env-management"
-#         key = "${path_relative_to_include()}/terraform.tfstate"
-#         region = "us-east-1"
-#         encrypt = "true"
-#     }
-# }
-# EOF
-# }
+generate "backend" {
+  path      = "s3-backend.tf"
+  if_exists = "overwrite_terragrunt"
+  contents  = <<EOF
+terraform {
+    backend "s3" {
+        bucket = "terraform-multi-env-management"
+        key = "${path_relative_to_include()}/terraform.tfstate"
+        region = "us-east-1"
+        encrypt = "true"
+    }
+}
+EOF
+}
 
 generate "versions" {
   path      = "versions.tf"
@@ -33,9 +33,7 @@ generate "vault" {
   path = "vault_provider.tf"
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
-  provider "vault" {
-    address = ""
-  }
+  provider "vault" {}
   data "vault_aws_access_credentials" "creds" {
     backend = "aws-tg"
     role    = "aws-atlantis"
